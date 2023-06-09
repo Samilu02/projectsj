@@ -2,20 +2,16 @@ package ch.zhaw.projectsj.entity;
 
 import javax.persistence.*;
 import java.util.List;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "therapy_type")
-public abstract class Therapy {
+@Document(collection = "therapies")
+public class Therapy {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private String id;
+    private String patientId;
+    // other attributes...
 
-    // other attributes
-
-    @OneToMany(mappedBy = "therapy")
-    private List<Prescription> prescriptions;
-
-    // getters and setters
+    // getters and setters...
 }
-

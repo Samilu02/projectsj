@@ -1,11 +1,13 @@
 package ch.zhaw.projectsj.entity;
 
 import javax.persistence.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
-@DiscriminatorValue("Step")
+@Document(collection = "steps")
 public class Step extends Therapy {
-    // specific attributes for Step
 
-    // getters and setters
+    // step-specific attributes...
+
+    // getters and setters...
 }

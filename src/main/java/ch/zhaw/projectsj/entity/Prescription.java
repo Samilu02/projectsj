@@ -1,22 +1,17 @@
 package ch.zhaw.projectsj.entity;
 
 import javax.persistence.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
+@Document(collection = "prescriptions")
 public class Prescription {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private String id;
+    private String patientId;
+    // other attributes...
 
-    // other attributes
-
-    @ManyToOne
-    @JoinColumn(name = "patient_id")
-    private Patient patient;
-
-    @ManyToOne
-    @JoinColumn(name = "therapy_id")
-    private Therapy therapy;
-
-    // getters and setters
+    // getters and setters...
 }
+
